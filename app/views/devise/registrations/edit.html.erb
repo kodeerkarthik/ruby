@@ -1,0 +1,65 @@
+<div class='index_body'>
+  <div class='shade'>
+    <div class='row'>
+      <div class='col-1'></div>
+      <div class='col-5 login_Body p-0'>
+        <h2 class='text-center font-weight-bold bg-warning text-light p-2'>Edit <%= resource_name.to_s.humanize %></h2>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="ml-5 m-4">
+            <%= f.label :email, :class=>'font-weight-bold lead form_lable ' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>"form-control"%>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="ml-5 m-4">
+            <%= f.label :password, :class=>'font-weight-bold lead form_lable' %> 
+            <i class='text-warning'>(leave blank if you don't want to change it)</i>
+            <%= f.password_field :password, autocomplete: "new-password", :class=>"form-control" %>
+            <% if @minimum_password_length %>
+              <em class='text-warning' ><%= @minimum_password_length %> characters minimum</em>
+            <% end %>
+          </div>
+
+          <div class="ml-5 m-4">
+            <%= f.label :password_confirmation, :class=>'font-weight-bold lead form_lable' %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :class=>"form-control" %>
+          </div>
+
+          <div class="ml-5 m-4">
+            <%= f.label :current_password, :class=>'font-weight-bold lead form_lable' %> 
+            <i class='text-warning'>(To confirm your changes)</i>
+            <%= f.password_field :current_password, autocomplete: "current-password", :class=>"form-control" %>
+          </div>
+
+          <div class="ml-5 m-4">
+            <%= f.submit "Update", :class=>"btn btn-success" %>
+          </div>
+        <% end %> 
+      </div>
+      <div class='col-1'></div>
+      <div class='col-4'>
+        <div class='bg-warning mt-5 mb-5 p-0'>
+          <h3 class='text-center font-weight-bold bg-primary text-white p-2'>Cancel my account</h3>
+          <p class='m-4 lead font-weight-bold'> Are you u nhappy? 
+            <%= button_to "Cancel my account", 
+            registration_path(resource_name),
+            data: { confirm: "Are you sure?" }, 
+            method: :delete ,:class=>'btn btn-danger ml-4'%>
+          </p>
+          <%= link_to "Back", :back, :class=>"btn btn-secondary btn-sm ml-4 mb-5  "   %>
+        </div>
+      </div>
+      <div class='col-1'></div>
+    </div>
+  </div>
+</div>
+
+

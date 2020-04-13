@@ -1,0 +1,30 @@
+<div class='container mt-5'>
+  <div class="shadow p-3 mb-5 bg-white rounded text-secondary">
+    <p class="list-group-item list-group-item-success">
+      <strong>Title:</strong>
+      <%= @article.title %>
+    </p>
+    
+    <p class="list-group-item list-group-item-warning">
+      <strong>Text:</strong>
+      <%= @article.text %>
+    </p>
+    <% if can? :update, @article %>
+      <%= link_to "Edit", edit_article_path(@article), :class => 'btn btn-sm btn-dark'%>
+    <% end %>
+    <%= link_to "Delete", article_path(@article), :class => 'btn btn-sm btn-danger',
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' }%>
+  </div>
+  <%= link_to 'Back', articles_path, :class => 'btn btn-sm btn-dark mb-3'%>
+  <hr>
+  <div class="row">
+    <div class="col-6">
+      <%= render 'comments/comments' %>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-5">
+      <%= render 'comments/form' %>
+    </div>
+  </div>
+</div>
