@@ -1,24 +1,22 @@
 <html>
-    <body class='index_body'>
-        <div class='shade'>
-
-        <%= link_to 'Click here to view All posts', posts_path,:class=>"btn btn-secondary" %>
-        <hr>
-        <div class='row container login_Body mb-5'>
-            <div class='col-4'>
-                <h1 class='text-light'><%= @post.title %></h1>
-                <p class='text-light'><%= @post.body %></p>
-            </div>
-            <div class='col-6'>
-                <%= link_to(image_tag(@post.image.thumb.url, alt: 'Image'), @post.image.url, target: '_blank') if @post.image? %>
-            </div>
-            <div class='col-2'>
-                <p><%= link_to 'Edit', edit_post_path(@post),:class=>'btn btn-warning' %></p>
-            </div>
-        <!-- <%= image_tag(@post.image.url, alt: 'Image') if @post.image? %> -->        
-          </div>     
+  <body class='index_body'>
+    <div class='shade'>
+      <%= link_to 'Click here to view All posts', posts_path,:class=>"btn btn-secondary" %>
+      <hr>
+      <div class='row container login_Body mb-5'>
+        <div class='col-4'>
+            <h1 class='text-light'><%= @post.title %></h1>
+            <p class='text-light'><%= @post.body %></p>
         </div>
-    </body>
+        <div class='col-6'>
+            <%= link_to(image_tag(@post.image.thumb.url, alt: 'Image'), @post.image.url, target: '_blank') if @post.image? %>
+        </div>
+        <div class='col-2'>
+            <p><%= link_to 'Edit', edit_post_path(@post),:class=>'btn btn-warning' %></p>
+        </div>
+      </div>     
+    </div>
+  </body>
 </html>
 
 

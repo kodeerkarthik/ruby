@@ -2,47 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .index_body {
-    background:url('indexbg.jpg');
-    min-height: 590px;
-    background-size: cover;
+	background:url('indexbg.jpg');
+	min-height: 590px;
+	background-size: cover;
 }
 .shade {
-    margin: 0;
-    padding: 100px 100PX 0 100PX;
-    min-height: 590px;
-    background-color: rgba(53, 114, 114, 0.521);
+	margin: 0;
+	padding: 100px 100PX 0 100PX;
+	min-height: 590px;
+	background-color: rgba(53, 114, 114, 0.521);
 }
 .content{
-    background-color: rgba(17, 74, 99, 0.644);
-    height: 200px;
-    padding-bottom: 100px;
-    box-shadow: 5px 5px 25px rgba(65, 63, 63, 0.973);
-    border: 1px rgba(255, 255, 255, 0.233) solid;
+	background-color: rgba(17, 74, 99, 0.644);
+	height: 200px;
+	padding-bottom: 100px;
+	box-shadow: 5px 5px 25px rgba(65, 63, 63, 0.973);
+	border: 1px rgba(255, 255, 255, 0.233) solid;
 }
 .computer {
-    opacity: 80%;
+	opacity: 80%;
 }
 .heading{
-    text-align: left;
-    margin: 20px 0 0 30px;
-    font-size: 40px;
-    color: white;
-    font-weight: bold;
-    text-shadow: 1px 1px 20px;
+	text-align: left;
+	margin: 20px 0 0 30px;
+	font-size: 40px;
+	color: white;
+	font-weight: bold;
+	text-shadow: 1px 1px 20px;
 }
 .description{
-    text-align: justify;
-    margin: 20px 0 0 30px;
-    font-size: 15px;
-    color: white;
+	text-align: justify;
+	margin: 20px 0 0 30px;
+	font-size: 15px;
+	color: white;
 }
 .login_Body {
-    background-color: rgba(17, 74, 99, 0.644);
-    padding: 50px;
-    box-shadow: 5px 5px 25px rgba(65, 63, 63, 0.973);
-    border: 1px rgba(255, 255, 255, 0.233) solid;
+	background-color: rgba(17, 74, 99, 0.644);
+	padding: 50px;
+	box-shadow: 5px 5px 25px rgba(65, 63, 63, 0.973);
+	border: 1px rgba(255, 255, 255, 0.233) solid;
 }
 .form_lable{
-    color: wheat;
-    font-weight: bold;
+	color: wheat;
+	font-weight: bold;
 }
