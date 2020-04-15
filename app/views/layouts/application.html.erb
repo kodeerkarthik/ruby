@@ -2,15 +2,13 @@
 <html>
 <head>
   <title>Blog</title>
-   <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'%>
+  <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'%>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <body>
   <nav class="navbar navbar-dark bg-dark">
@@ -24,7 +22,7 @@
       </form>
     <% else %>
       <form class="form-inline">
-        <a href="#info" rel="modal:open" class="btn btn-sm btn-success mr-3">Project Info</a>
+        <!-- <a href="#info" rel="modal:open" class="btn btn-sm btn-success mr-3">Project Info</a> -->
         <%= link_to "Register", new_user_registration_path , :class => 'btn btn-light mr-3 btn-sm'%> |
         <%= link_to "Login", new_user_session_path, :class => 'btn btn-info mr-3 btn-sm' %>        
       </form>
