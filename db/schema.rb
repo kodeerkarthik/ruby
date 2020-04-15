@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200323074859) do
+ActiveRecord::Schema.define(version: 20200415083313) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+# Could not dump table "admins" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20200323074859) do
     t.integer  "User_id"
   end
 
-  add_index "articles", ["admin_id"], name: "index_articles_on_admin_id", using: :btree
+  add_index "articles", ["admin_id"], name: "index_articles_on_admin_id"
 
   create_table "comments", force: :cascade do |t|
     t.string   "username"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20200323074859) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -44,5 +44,18 @@ ActiveRecord::Schema.define(version: 20200323074859) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

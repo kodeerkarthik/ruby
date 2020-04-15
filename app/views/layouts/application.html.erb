@@ -3,7 +3,6 @@
 <head>
   <title>Blog</title>
    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'%>
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,8 +14,21 @@
 </head>
 <body>
   <nav class="navbar navbar-dark bg-dark">
-  <%= image_tag("logo.png",:width=>'100', :height=>'30' )%>
-    
+    <%= image_tag("logo.png",:width=>'100', :height=>'30' )%>
+    <% if user_signed_in? %>
+      <%= link_to 'Home', home_path, :class => "btn btn-outline-info"%>
+      <form class="form-inline">
+        <span class='text-light mr-3'>Logged in as <strong> <%= current_user.email %></strong>.</span>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-outline-warning"%> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete , :class => "btn btn-outline-info"%>
+      </form>
+    <% else %>
+      <form class="form-inline">
+        <a href="#info" rel="modal:open" class="btn btn-sm btn-success mr-3">Project Info</a>
+        <%= link_to "Register", new_user_registration_path , :class => 'btn btn-light mr-3 btn-sm'%> |
+        <%= link_to "Login", new_user_session_path, :class => 'btn btn-info mr-3 btn-sm' %>        
+      </form>
+    <% end %> 
   </nav>
   <div>
     <% if notice %>

@@ -3,9 +3,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  # The secret key used by Devise. Devise uses this key to generate
-  # random tokens. Changing this key will render invalid all existing
-
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -36,7 +33,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [:email]
+  # config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -110,7 +107,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'cabc0f6898c4df2034a67b5a6da98bfefd01a054afb9c1e5bdb41487a7c1a6914b214ce7937f19cc8db9a7895e4dae628b4e5999fa10693bf3f62d2188ffe557'
+  # config.pepper = 'e7f3d5f3177ff993dd5490e88a2c3458963450b24a7cf172682cfe481d1566be4d850b1be8b7476d32c9bd3693648d27adac8b8a0fb709f8d8643458a754d527'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
