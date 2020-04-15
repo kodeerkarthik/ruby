@@ -4,6 +4,12 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
     redirect_to article_path(@article)
+    if(@comment.save)
+      redirect_to article_path(@article)
+    else
+      flash.alert = "Your comment is not done, please try again with providing username should be >=3 letters"
+      redirect_to articles_path
+    end
   end
 
   def destroy
