@@ -1,5 +1,7 @@
 <div class='container mt-5'>
   <h3 class="alert bg-dark text-white">LISTING ARTICLES</h3>
+  <%= link_to 'New article', new_article_path, id:'new_article', :class => "btn btn-outline-info"%>
+
   <hr/> 
   <% @articles.each do |article| %>
     <div class="alert alert-dark">

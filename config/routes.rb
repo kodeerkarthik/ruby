@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  get '/' => 'users#index'
+  
+  # get '/' => 'users#index'
   get '/posts' => 'posts#index'
-  get '/register' => 'users#register'
-  get '/login' => 'users#login'
-  post '/sessions' => 'sessions#create'
-  post '/users' => 'users#create'
-  get '/dashboard' => 'welcome#index' , as: 'home'
+  get '/' => 'welcome#index' , as: 'home'
 
   resources :posts
 
