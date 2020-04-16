@@ -5,12 +5,12 @@
 			<div class='mt-5 mb-5'>
 				<h1 class="shadow p-3 mb-5 welcome_content rounded text-warning">Welcome to my Blog</h1>
 				<% if user_signed_in? %>
-					<div class="text-center">
+					<div class="text-center border border-warning pt-2 pb-2 rounded">
 						<%= link_to 'Go to My Blog', articles_path, :class => 'btn btn-warning'  %>
 						<%= link_to 'Go to My Galary',  posts_path, :class => 'btn btn-info ml-5 mr-5'  %>
 						<a href="#ex1" rel="modal:open" class="btn btn-success">Open Modal</a>
 					</div>
-					<%end%>
+				<%end%>
 			</div>
       <div class="content row">
         <div class='col-8 '>
