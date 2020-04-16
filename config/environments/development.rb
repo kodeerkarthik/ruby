@@ -24,7 +24,8 @@ Rails.application.configure do
     domain: "gmail.com",
     authentication: "plain",
     # enable_starttls_auto: true,
-    
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
   }
   config.action_mailer.default :charset => "utf-8"
   # Specify what domain to use for mailer URLs
