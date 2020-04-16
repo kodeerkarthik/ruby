@@ -5,8 +5,8 @@
 	$ bundle install
 	$ rake db:migrate
 
-# Use rails s to run the application
+Use rails s to run the application
 
-# Ruby version 	: ruby 2.5.1p57
+Ruby version 	: ruby 2.5.1p57
 
-# rails version	: Rails 5.2.4.2
+rails version	: Rails 5.2.4.2
