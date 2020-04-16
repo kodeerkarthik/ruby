@@ -1,1 +1,12 @@
-# ruby
+# We will have to clone the repository from GitHub, using the following link.
+	https://github.com/kodeerkarthik/ruby.git
+
+# Run the bundle and migrations to update database and gems, using the following command
+	$ bundle install
+	$ rake db:migrate
+
+# Use rails s to run the application
+
+# Ruby version 	: ruby 2.5.1p57
+
+# rails version	: Rails 5.2.4.2
