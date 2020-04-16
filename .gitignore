@@ -9,3 +9,5 @@ public/uploads
 /tmp
 
 /db/*schema.rb
+
+/config/local_env.yml
