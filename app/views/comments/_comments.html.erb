@@ -1,0 +1,17 @@
+<div class='container mt-5'>
+  <h4><b> COMMENTS</b> </h4>
+  <div class="bg-secondary p-3 mb-5 rounded">
+    <h5 class="bg-light p-2 text-dark mb-4 rounded d-flex justify-content-center">
+      <b><%= pluralize(@article.comments.count,"comment") %></b>
+      </h4>
+    <% @article.comments.each do |comment| %>
+      <div class="alert alert-warning m-1 pb-0">
+        <p><b><u><%= comment.username %></u></b>: <%= comment.body %>
+        <%= link_to '[X]', [comment.article, comment], :class => 'text-danger float-right',
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class='container mt-5'>
+  <h3 class="alert bg-dark text-white">LISTING ARTICLES</h3>
+  <%= link_to 'New article', new_article_path, id:'new_article', :class => "btn btn-outline-info"%>
+
+  <hr/> 
+  <% @articles.each do |article| %>
+    <div class="alert alert-dark">
+      <h3 style="color:red"><%= article.title %></h3>
+      <p><%= article.text %></p>
+      <%= link_to 'Show', article_path(article), :class => "btn btn-sm btn-info" %>
+    </div>
+  <% end %>
+</div>
+
+
+
