@@ -10,6 +10,8 @@ class Ability
       # else
         can :manage, Article, User_id: user.id 
         can :read, :all
+
+        can :manage, Post, User_id: user.id 
       # end
   
 

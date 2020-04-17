@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+    load_and_authorize_resource
     before_action :set_post, only: [:show, :edit, :update]
     before_filter :authenticate_user!, excpet: [:index, :show]
+    skip_before_action :verify_authenticity_token
 
   def index
     @posts = Post.order('created_at DESC')
@@ -16,11 +18,18 @@ class PostsController < ApplicationController
  
   def create
     @post = Post.new(post_params)
+    @post.User_id = current_user.id  
     if @post.save
       redirect_to posts_path
     else
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
  
   def edit
