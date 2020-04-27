@@ -1,6 +1,7 @@
-<div class='login_Body m-3 p-1 pl-4'>
-<h2><%= link_to post.title+'.jpg', post_path(post) ,:class=>'text-warning'%></h2>
-<p class='text-light'><%= truncate(post.body, length: 150) %></p>
+<div class='login_Body row m-3 p-1 pl-4'>
+	<h2 class='col'><%= link_to post.title+'.jpg', post_path(post) ,:class=>'text-warning'%></h2>
+	<p class='text-light col'><%= truncate(post.body, length: 150) %></p>
+	<%= image_tag(post.image.url, alt: 'Image', :class=>'smallImage') %>
 </div>
 
 
