@@ -16,6 +16,9 @@
     <%= image_tag("logo.png",:width=>'100', :height=>'30' )%>
     <% if user_signed_in? %>
       <%= link_to 'Home', home_path, :class => "btn btn-outline-info"%>
+      <% if can? :manage, :all %>
+        <%= link_to "Manage Users", manage_user_index_path, :class => "btn btn-outline-info"%>
+      <%end%>
       <form class="form-inline">
         <span class='text-light mr-3'>Logged in as <strong> <%= current_user.username %></strong>.</span>
         <%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-outline-warning"%> |

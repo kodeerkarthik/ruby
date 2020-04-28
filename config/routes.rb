@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'manage_user/index'
+
   devise_for :users
   # get '/' => 'users#index'
   get '/posts' => 'posts#index'
