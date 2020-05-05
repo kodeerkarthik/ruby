@@ -1,29 +1,28 @@
 <html>
 	<body class='index_body' id='index_body'>
 		<div class='shade pt-5'>
-			<% @users = User.all %>
-			<% @articles = Article.all %>
-			<% @users.each do |user| %>
+			<div class="accordion" id="accordionExample">
+				<% @users.each do |user| %>
+					<div class='row alert alert-warning mb-0 mt-4 users' data-toggle="collapse" data-target="#articles" aria-expanded="true" aria-controls="collapseOne">
+						<b class='col'><%= user.email %></b>
+						<b class='col'><%= user.username %></b>
+						<%if user.admin==true%>
+							<b class='float-right text-danger'>Admin</b>
+						<%else%>
+							<b class='float-right'>User</b>
+						<%end%>
+					</div>
 
-				<div class='row alert alert-warning mb-0 mt-4 users' id='users'>
-					<b class='col'><%= user.email %></b>
-					<b class='col'><%= user.username %></b>
-					<%if user.admin==true%>
-						<b class='float-right text-danger'>Admin</b>
-					<%else%>
-						<b class='float-right'>User</b>
+					<% @articles.each do |article| %>
+						<%if article.User_id==user.id%>
+							<ul class="list-group articles collapse" id="articles" >
+								<li class="list-group-item list-group-item-primary"><%= link_to article.title, article_path(article)%></li>
+							</ul>
+						<%end%>
 					<%end%>
-				</div>
-
-				<% @articles.each do |article| %>
-					<%if article.User_id==user.id%>
-						<ul class="list-group articles" id='articles'>
-							<li class="list-group-item list-group-item-primary"><%= link_to article.title, article_path(article)%></li>
-						</ul>
-					<%end%>
-				<%end%>
-
-			<% end %>	
+				<% end %>
+			</div>	
+			
 		</div>
 	</body>
 </html>
