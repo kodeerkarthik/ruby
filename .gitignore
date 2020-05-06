@@ -8,6 +8,6 @@ public/uploads
 !/log/.keep
 /tmp
 
-/db/*schema.rb
+/db/schema.rb
 
 /config/local_env.yml
