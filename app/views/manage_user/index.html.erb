@@ -6,6 +6,17 @@
 					<div class='row alert alert-warning mb-0 mt-4 users' data-toggle="collapse" data-target="#articles" aria-expanded="true" aria-controls="collapseOne">
 						<b class='col'><%= user.email %></b>
 						<b class='col'><%= user.username %></b>
+						<b class='col'>
+						<%if user.confirmed_at==nil%>
+							<b>
+								<%= link_to "Resend confirmation mail", new_user_confirmation_path %>
+							</b>
+							<%else%>
+							<b>
+								User Confirmed
+							</b>
+						<%end%>
+						</b>
 						<%if user.admin==true%>
 							<b class='float-right text-danger'>Admin</b>
 						<%else%>

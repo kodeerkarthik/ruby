@@ -2,10 +2,10 @@ development:
   adapter: postgresql
   encoding: unicode
   reconnect: false
-  database: Blogs
+  database: blogs
   pool: 5
   username: postgres
-  password: postgres
+  password: password
   host: localhost
   port: 5432
 
