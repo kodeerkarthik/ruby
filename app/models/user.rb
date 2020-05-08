@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   def username
     return self.email.split('@')[0].capitalize
   end
+
+  def active_for_authentication?
+    super && !deactivated
+  end
   
   def activate_account!   
     update_attributes(deactivated: false)
