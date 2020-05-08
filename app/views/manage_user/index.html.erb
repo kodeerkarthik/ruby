@@ -7,21 +7,37 @@
 						<b class='col'><%= user.email %></b>
 						<b class='col'><%= user.username %></b>
 						<b class='col'>
-						<%if user.confirmed_at==nil%>
-							<b>
-								<%= link_to "Resend confirmation mail", new_user_confirmation_path %>
-							</b>
-							<%else%>
-							<b>
-								User Confirmed
-							</b>
-						<%end%>
+							<%if user.confirmed_at.present? %>
+								<b>
+									User Confirmed								
+								</b>
+								<%else%>
+								<b>
+									<%= link_to "Resend confirmation mail", new_user_confirmation_path %>
+								</b>
+							<%end%>
 						</b>
 						<%if user.admin==true%>
 							<b class='float-right text-danger'>Admin</b>
 						<%else%>
 							<b class='float-right'>User</b>
 						<%end%>
+						<b class='col'>
+							<%if user.admin==true%>
+								<b>
+								</b>
+							<%else%>
+								<%if user.deactivated.present? %>
+									<b>
+										<%=link_to "Activate the user", activate_path(user_id: user), method: :post, data: { confirm: "Are you sure You want to Activate Account ?" } %>
+									</b>
+									<%else%>
+									<b>
+										<%=link_to "Deactivate the user", deactivate_path(user_id: user), method: :post, data: { confirm: "Are you sure You want to Deactivate Account?" } %>
+									</b>
+								<%end%>
+							<%end%>
+						</b>
 					</div>
 					<% @articles.each do |article| %>
 						<%if article.User_id==user.id%>
