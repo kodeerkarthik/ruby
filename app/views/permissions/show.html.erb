@@ -1,0 +1,18 @@
+<div class='container mt-5'>
+	<div class='mb-3'><b>Email : </b><%= @user.email%></div>
+	<div class='mb-3'><b>Username : </b><%= @user.username%></div>
+	<div class='mb-3'><b>Role : </b>
+
+	<% if @user.roles.first!= nil %>
+			<%= @user.roles.last.name%></div>
+	<%else%>
+			no role assigned
+	<%end%>
+
+	<%= form_for :permission, url: permission_path(@user), method: :patch do |f| %>
+			<%= f.select :role, ['admin', 'moderator', 'manager', 'viewer',]%>
+			<%= f.submit(:add_role, {:class => "btn btn-success btn-sm"}) %>
+	<%end%>
+
+	<%= link_to 'Back', permissions_path, :class=>"btn btn-dark btn-sm mt-4" %>
+</div>

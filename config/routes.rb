@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/' => 'welcome#index' , as: 'home'
 
   resources :posts
+  resources :permissions
+  resources :manage_users
 
   resources :articles do 
     resources :comments
