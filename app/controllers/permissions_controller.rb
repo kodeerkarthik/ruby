@@ -1,4 +1,5 @@
 class PermissionsController < ApplicationController
+	include PermissionsHelper
 	def index
 		@users = User.all
 	end
@@ -7,16 +8,14 @@ class PermissionsController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
-	def update
-		@user = User.find(params[:id])
-		@role = role_params
-		@user.roles.first.destroy
-		@user.add_role @role.values.first
-		redirect_to permission_path(@user)
+	def addRole
+		role = params[:role]
+		user = User.find(params[:id])
+		change_role(user,role)
 	end
-	
-	private
-    def role_params
-      params.require(:permission).permit(:role)
-    end
+
+	def removeRole
+		user = User.find(params[:id])
+		delete_role(user)
+	end
 end

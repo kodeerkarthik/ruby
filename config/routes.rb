@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/posts' => 'posts#index'
   get '/' => 'welcome#index' , as: 'home'
 
+  get '/addRole' => 'permissions#addRole'
+  get '/removeRole' => 'permissions#removeRole'
+
   resources :posts
   resources :permissions
   resources :manage_users

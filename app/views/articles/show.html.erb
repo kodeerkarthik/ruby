@@ -9,10 +9,10 @@
       <strong>Text:</strong>
       <%= @article.text %>
     </p>
-    <% if can? :update, @article %>
+    <% if current_user.has_role? :admin or current_user.has_role? :manager or current_user.has_role? :moderator %>
       <%= link_to "Edit", edit_article_path(@article), :class => 'btn btn-sm btn-dark'%>
     <% end %>
-    <% if can? :delete, @article %>
+    <% if current_user.has_role? :admin %>
       <%= link_to "Delete", article_path(@article), :class => 'btn btn-sm btn-danger',
                               method: :delete,
                               data: { confirm: 'Are you sure?' }%>
