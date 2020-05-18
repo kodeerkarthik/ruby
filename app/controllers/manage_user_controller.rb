@@ -5,10 +5,5 @@ class ManageUserController < ApplicationController
     @users = User.all
     @articles = Article.all
   end
-
-  def user_roles
-    @user = User.find(params[:id])
-  end
-
- 
+   
 end

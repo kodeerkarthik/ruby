@@ -2,7 +2,7 @@
 	<body class='index_body' id='index_body'>
 		<div class='shade pt-5'>
 			<div class="accordion" id="accordionExample">
-			<%= link_to 'define role', permissions_path, :class=>'btn btn-danger btn-sm' %>
+			<%= link_to 'define role', user_roles_path, :class=>'btn btn-secondary btn-sm' %>
 
 				<% @users.each do |user| %>
 					<div class='row alert alert-warning mb-0 mt-4 users' data-toggle="collapse" data-target="#articles" aria-expanded="true" aria-controls="collapseOne">

@@ -1,4 +1,4 @@
-class PermissionsController < ApplicationController
+class UserRolesController < ApplicationController
 	include PermissionsHelper
 	def index
 		@users = User.all
@@ -9,6 +9,7 @@ class PermissionsController < ApplicationController
 	end
 
 	def addRole
+		debugger
 		role = params[:role]
 		user = User.find(params[:id])
 		change_role(user,role)

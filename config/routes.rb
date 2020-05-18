@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   get '/posts' => 'posts#index'
   get '/' => 'welcome#index' , as: 'home'
 
-  get '/addRole' => 'permissions#addRole'
-  get '/removeRole' => 'permissions#removeRole'
+  get '/addRole' => 'user_roles#addRole'
+  get '/removeRole' => 'user_roles#removeRole'
 
   resources :posts
-  resources :permissions
+  resources :user_roles
   resources :manage_users
 
   resources :articles do 
