@@ -10,7 +10,7 @@
 	</div>
 	
 	<%= select_tag(:role, 
-	options_for_select(['admin','moderator','manager','viewer'],
+	options_for_select(roles_list,
 	if @user.roles.any?
 		@user.roles.last.name 
 	end), :id=>'role_select', :user_id=>@user.id) %>	

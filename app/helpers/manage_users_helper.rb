@@ -13,4 +13,8 @@ module ManageUsersHelper
 	def delete_role(user)
 		user.roles.first.destroy
 	end
+	
+	def roles_list
+		return ['admin','moderator','manager','viewer']
+	end
 end
