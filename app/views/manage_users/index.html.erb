@@ -2,17 +2,12 @@
 	<body class='index_body' id='index_body'>
 		<div class='shade pt-5'>
 			<div class="accordion" id="accordionExample">
-			<%= link_to 'define role', user_roles_path, :class=>'btn btn-secondary btn-sm' %>
-
 				<% @users.each do |user| %>
-					<div class='row alert alert-warning mb-0 mt-4 users' data-toggle="collapse" data-target="#articles" aria-expanded="true" aria-controls="collapseOne">
-						<b class='col'><%= user.email %></b>
+					<div class='row alert alert-warning mb-0 mt-4 users'>
+						<b class='col' data-toggle="collapse" data-target="#articles" aria-expanded="true" aria-controls="collapseOne"><%= user.email %></b>
 						<b class='col'><%= user.username %></b>
-						<%if user.admin==true%>
-							<b class='float-right text-danger'>Admin</b>
-						<%else%>
-							<b class='float-right'>User</b>
-						<%end%>
+						<b class='col'><%=user.roles.last.name %></b>
+						<%= link_to 'View', manage_user_path(user), :class => 'btn btn-sm btn-outline-info'%>
 					</div>
 					<% @articles.each do |article| %>
 						<%if article.User_id==user.id%>

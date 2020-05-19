@@ -1,9 +1,0 @@
-<div class='container'>
-	<% @users.each do |user| %>
-		<div class='row alert alert-warning mb-0 mt-4 users' data-toggle="collapse" data-target="#articles" aria-expanded="true" aria-controls="collapseOne">
-			<b class='col'><%= user.email %></b>
-			<b class='col'><%= user.username %></b>
-			<%= link_to 'View', user_role_path(user), :class => 'text-info'%>
-		</div>
-	<% end %>
-</div>

@@ -1,5 +1,5 @@
-module PermissionsHelper
-	def change_role(user,role)
+module ManageUsersHelper
+    def change_role(user,role)
 		if user.roles.first.present?
 			user.roles.first.destroy
 			user.add_role role

@@ -15,7 +15,7 @@
 		@user.roles.last.name 
 	end), :id=>'role_select', :user_id=>@user.id) %>	
 	<%= button_tag "remove role", :id=>"rmrole", :user_id=>@user.id, :class=>'btn btn-danger btn-sm'%><br>
-	<%= link_to 'Back', user_roles_path, :class=>"btn btn-dark btn-sm mt-4" %>
+	<%= link_to 'Back', manage_users_path, :class=>"btn btn-dark btn-sm mt-4" %>
 </div>
 
 

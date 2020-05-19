@@ -21,7 +21,7 @@
     <% if user_signed_in? %>
       <%= link_to 'Home', home_path, :class => "btn btn-outline-info"%>
       <% if current_user.admin %>
-        <%= link_to "Manage Users", manage_user_index_path, :class => "btn btn-outline-info"%>
+        <%= link_to "Manage Users", manage_users_path, :class => "btn btn-outline-info"%>
       <%end%>
       <form class="form-inline">
         <span class='text-light mr-3'> <strong> <%= current_user.username %></strong>.</span>
