@@ -18,8 +18,8 @@ class Ability
         can :manage, :all
       else
         can :read, Article
-        can :manage, Article if user.has_role?(:manager, Article)
-        can :write, Article, :id => Article.with_role(:moderator, user).pluck(:id)
+        can :update, Article if user.has_role?(:manager, Article)
+        can :update, Article if user.has_role?(:mderator, Article)
       end
   
 
