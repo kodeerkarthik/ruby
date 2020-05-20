@@ -19,7 +19,7 @@ class Ability
       else
         can :read, Article
         can :update, Article if user.has_role?(:manager, Article)
-        can :update, Article if user.has_role?(:mderator, Article)
+        can :update, Article if user.has_role?(:moderator, Article)
       end
   
 
