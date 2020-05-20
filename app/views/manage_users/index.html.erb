@@ -6,6 +6,38 @@
 					<div class='row alert alert-warning mb-0 mt-4 users'>
 						<b class='col' data-toggle="collapse" data-target="#articles" aria-expanded="true" aria-controls="collapseOne"><%= user.email %></b>
 						<b class='col'><%= user.username %></b>
+						<b class='col'>
+							<%if user.confirmed_at.present? %>
+								<b>
+									User Confirmed								
+								</b>
+								<%else%>
+								<b>
+									<%= link_to "Resend confirmation mail", new_user_confirmation_path %>
+								</b>
+							<%end%>
+						</b>
+						<%if user.admin==true%>
+							<b class='float-right text-danger'>Admin</b>
+						<%else%>
+							<b class='float-right'>User</b>
+						<%end%>
+						<b class='col'>
+							<%if user.admin==true%>
+								<b>
+								</b>
+							<%else%>
+								<%if user.deactivated.present? %>
+									<b>
+										<%=link_to "Activate the user", activate_path(user_id: user), method: :post, data: { confirm: "Are you sure You want to Activate Account ?" } %>
+									</b>
+									<%else%>
+									<b>
+										<%=link_to "Deactivate the user", deactivate_path(user_id: user), method: :post, data: { confirm: "Are you sure You want to Deactivate Account?" } %>
+									</b>
+								<%end%>
+							<%end%>
+						</b>
 						<b class='col'><%=user.roles.last.name %></b>
 						<%= link_to 'View', manage_user_path(user), :class => 'btn btn-sm btn-outline-info'%>
 					</div>
