@@ -43,7 +43,7 @@ group :development do
   gem 'mini_magick'
 
   gem "fog-aws"
-
+  gem "rolify"
   gem 'cancancan'
 
 end

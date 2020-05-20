@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   mount_uploader :avatar, AvatarUploader
   has_many :articles
   has_many :posts
@@ -14,4 +15,14 @@ class User < ActiveRecord::Base
   def username
     return self.email.split('@')[0].capitalize
   end
+
+	def admin
+		return self.has_role? :admin
+  end
+  def moderator
+		return self.has_role? :moderator
+  end
+  def manager
+		return self.has_role? :manager
+	end
 end
