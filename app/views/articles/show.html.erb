@@ -10,7 +10,7 @@
       <strong>Text:</strong>
       <%= @article.text %>
     </p>
-    <% if current_user.admin or current_user.moderator or current_user.manager%>
+    <% if current_user.admin || current_user.moderator || current_user.manager%>
       <%= link_to "Edit", edit_article_path(@article), :class => 'btn btn-sm btn-dark'%>
     <% end %>
     <% if current_user.admin %>
