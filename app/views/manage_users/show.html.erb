@@ -1,0 +1,43 @@
+<div class='container mt-5'>
+	<div class='mb-3'><b>Email : </b><%= @user.email%></div>
+	<div class='mb-3'><b>Username : </b><%= @user.username%></div>
+	<div class='mb-3'><b>Role : </b>
+		<% if @user.roles.any? %>
+			<%= @user.roles.last.name%><br>
+		<%else%>
+			no role assigned<br>
+		<%end%>
+	</div>
+	
+	<%= select_tag(:role, 
+	options_for_select(roles_list,
+	if @user.roles.any?
+		@user.roles.last.name 
+	end), :id=>'role_select', :user_id=>@user.id) %>	
+	<%= button_tag "remove role", :id=>"rmrole", :user_id=>@user.id, :class=>'btn btn-danger btn-sm'%><br>
+	<%= link_to 'Back', manage_users_path, :class=>"btn btn-dark btn-sm mt-4" %>
+</div>
+
+
+<script>
+	$(document).ready(function(){
+		$("#role_select").change(function(){
+			var role=document.getElementById('role_select').value
+			var id=document.getElementById('role_select').getAttribute("user_id")
+			$.ajax({
+				url: '/addRole',
+				type: 'get',
+				data: {role: role, id: id}
+			});
+		});
+
+		$("#rmrole").click(function(){
+			var id=document.getElementById('rmrole').getAttribute("user_id")
+			$.ajax({
+				url: '/removeRole',
+				type: 'get',
+				data: { id: id}
+			});
+		});
+	});
+</script>

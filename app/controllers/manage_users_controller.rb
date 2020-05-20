@@ -21,4 +21,20 @@ class ManageUsersController < ApplicationController
       redirect_to manage_user_index_path
     end
   end
+   
+  def show
+		@user = User.find(params[:id])
+  end
+  
+  def addRole
+		role = params[:role]
+		user = User.find(params[:id])
+		change_role(user,role)
+	end
+
+	def removeRole
+		user = User.find(params[:id])
+		delete_role(user)
+  end
+  
 end

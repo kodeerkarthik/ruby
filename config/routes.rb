@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   
-  get 'manage_user/index'
-  post "/deactivate", to: "manage_user#deactivate"
-  post "/activate", to: "manage_user#activate"
 
   devise_for :users
-  # get '/' => 'users#index'
-  get '/posts' => 'posts#index'
   get '/' => 'welcome#index' , as: 'home'
-  resources :manage_user
+
+  get '/addRole' => 'manage_users#addRole'
+  get '/removeRole' => 'manage_users#removeRole'
+
   resources :posts
+  resources :user_roles
+  resources :manage_users
 
   resources :articles do 
     resources :comments
