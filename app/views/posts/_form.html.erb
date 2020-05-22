@@ -1,7 +1,7 @@
 <div class='row'>
   <div class='col-4'></div>
   <div class='col-4 login_Body'>
-    <%= form_for post, remote:true do |f| %>
+    <%= form_for post, :id=>'form1', remote:true do |f| %>
       <div class="row">
         <%= f.label :title, :class=>'col-sm-2 text-right form_lable'%>
         <div class="col-sm-10">
@@ -12,7 +12,8 @@
       <div class="row">
         <%= f.label :image,:class=>'col-sm-2 text-right form_lable'  %>
         <div class="col-sm-10">
-          <%= f.file_field :image ,:class=>" mb-3"%>
+          <%= f.file_field :image ,:class=>" mb-3", :id=>'imgInp'%>
+          <%= image_tag('#', alt:'your Image',:id=>'blah',:width=>'75',:class=>'mb-2 rounded-circle')%>
         </div>
       </div>
 
@@ -28,5 +29,25 @@
   </div>
   <div class='col-4'></div>
 </div>
+
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          $('#blah').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#imgInp").change(function(){
+    readURL(this);
+  });
+
+</script>
+
 
 

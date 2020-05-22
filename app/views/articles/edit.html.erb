@@ -15,6 +15,11 @@
       <%= form.label :text %><br>
       <%= form.text_area(:text, {:class => "form-control"}) %>
     </p>
+
+    <p>
+      <%= form.label :images %><br>
+      <%= form.file_field(:images, multiple: true, :class => "form-control") %>
+    </p>
   
     <p>
       <%= form.submit(:Update, {:class => "btn btn-success"}) %>

@@ -4,7 +4,7 @@
       <div class='col-1'></div>
       <div class='col-5 login_Body p-0'>
         <h2 class='text-center font-weight-bold bg-warning text-light p-2'>Edit <%= resource_name.to_s.humanize %></h2>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :id=>'form1', html: { method: :put }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           
           <div class="row ml-5 m-4">
@@ -16,7 +16,8 @@
               <% end %> 
             </div>
             <div class='col-7 align-self-center'>
-              <%= f.file_field :avatar, :class=>'text-warning'%>
+              <%= f.file_field :avatar, :id=>'imgInp', :class=>'text-warning'%>
+              <%= image_tag('#', alt:'preview avatar', :id=>'blah', :width=>'75',:height=>'75',:class=>'rounded-circle' )%>
               <% if @user.avatar? %> 
                 <div class='text-white mt-3'><%= f.check_box :remove_avatar %> Remove avatar</div>
               <% end %>
@@ -80,3 +81,19 @@
 </div>
 
 
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          $('#blah').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#imgInp").change(function(){
+    readURL(this);
+  });
+</script>
