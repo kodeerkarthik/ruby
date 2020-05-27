@@ -5,6 +5,6 @@ class Post < ActiveRecord::Base
   	validates :image, presence: true
 	validates :body, presence: true
 	
-	scope :published, -> { where(published: false) } #private
+	scope :published, -> { where(published: false) }
 	scope :notpublished, -> { where(published: true) }
 end
