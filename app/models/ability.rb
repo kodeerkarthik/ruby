@@ -18,8 +18,10 @@ class Ability
         can :manage, :all
       else
         can :read, Article
+        can :read, Post
         can :update, Article if user.has_role?(:manager, Article)
         can :update, Article if user.has_role?(:moderator, Article)
+        can :manage, Post, User_id: user.id 
       end
   
 
