@@ -5,7 +5,8 @@ class PostsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
   def index
-    @posts = Post.order('created_at DESC')
+    @posts = Post.where(:user_id => current_user.id).notpublished  
+    @published_posts = Post.published
   end
  
   def show
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
  
   def create
     @post = Post.new(post_params)
-    @post.User_id = current_user.id  
+    @post.user_id = current_user.id  
     if @post.save
       redirect_to posts_path
     else
@@ -47,7 +48,7 @@ class PostsController < ApplicationController
   private
  
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :published)
   end
  
   def set_post
