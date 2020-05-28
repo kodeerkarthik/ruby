@@ -21,7 +21,7 @@ class Ability
         can :read, Post
         can :update, Article if user.has_role?(:manager, Article)
         can :update, Article if user.has_role?(:moderator, Article)
-        can :manage, Post, User_id: user.id 
+        can :manage, Post, user_id: user.id 
       end
   
 
