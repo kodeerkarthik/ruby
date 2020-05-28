@@ -4,8 +4,8 @@
             <h2 class='text-center bg-danger text-light mt-5'>ALL IMAGES</h2> 
             <%= link_to 'Add new Image', new_post_path, id:'new_path', remote:true, :class=>"btn btn-sm btn-warning" %>
             <hr>
+            <%= render @published_posts %>
             <%= render @posts %>
-            <%= render @post %>
         </div>
     </body>
 </html>

@@ -5,8 +5,8 @@ class PostsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
   def index
-    @post = Post.where(:User_id => current_user.id).notpublished  
-    @posts = Post.published
+    @posts = Post.where(:User_id => current_user.id).notpublished  
+    @published_posts = Post.published
   end
  
   def show
