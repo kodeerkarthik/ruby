@@ -16,6 +16,17 @@ class User < ActiveRecord::Base
     return self.email.split('@')[0].capitalize
   end
 
+  def active_for_authentication?
+    super && !deactivated
+  end
+  
+  def activate_account!   
+    update_attributes(deactivated: false)
+  end
+  
+  def deactivate_account!
+    update_attributes(deactivated: true) unless deactivated
+  end
 	def admin
 		return self.has_role? :admin
   end
